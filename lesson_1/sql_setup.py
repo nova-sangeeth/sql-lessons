@@ -45,4 +45,15 @@ CREATE TABLE regions (
 '''
 execute(queryString=query2)
 
-list_tables()
+# list_tables()
+
+#  altering the table
+
+query_alter = '''
+ALTER TABLE countries ADD country_name text
+'''
+
+execute(queryString=query_alter)
+insert_query = "insert into regions values(1,'test-regions', '001')"
+
+execute(queryString=insert_query)
