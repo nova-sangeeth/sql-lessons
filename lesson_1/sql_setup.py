@@ -90,3 +90,36 @@ execute(queryString=del_query)
 
 query_drop_table = "DROP TABLE regions"
 
+
+# JOINS WITH MULTIPLE TABLE
+
+query_dept_create = '''
+CREATE TABLE departments(
+    department_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+    department_name text NOT NULL 
+)
+'''
+
+execute(queryString=query_dept_create)
+
+
+query_employee_create = '''
+CREATE TABLE  employees (
+    employee_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+    first_name text, 
+    last_name text, 
+    email text NOT NULL,
+    phone_number text, 
+    hire_date NOT NULL,
+    emp_enroll_id INTEGER NOT NULL,
+    salary double NOT NULL,
+    manager_id integer, 
+    dep_id integer,
+    FOREIGN KEY (dep_id) REFERNCES departments (department_id),
+    FOREIGN KEY (manager_id) REFERENCES employees (employee_id)
+)
+'''
+
+
+execute(queryString=query_employee_create)
+
