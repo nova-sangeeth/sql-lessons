@@ -123,3 +123,39 @@ CREATE TABLE  employees (
 
 execute(queryString=query_employee_create)
 
+# ALTERING TABLES
+
+dept_alter_query = '''
+ALTER TABLE departments ADD security text
+'''
+
+execute(
+    queryString=dept_alter_query
+)
+
+#inserting data into employees:
+
+employee_insert = '''
+INSERT INTO employees(
+    employee_id,
+    first_name,
+    last_name,
+    email,
+    phone_number,
+    hire_date,
+    emp_enroll_id,
+    salary,
+    manager_id, 
+    dep_id
+)
+VALUES (?,?,?,?,?,?,?,?,?,?)
+'''
+insert_emp_data=[(100,'Steven','King','steven.king@xyz.com','515.123.4567','1987-06-17',4,24000.00,0,1),
+         (101,'Neena','Kochhar','neena.kochhar@xyz.com','515.123.4568','1989-09-21',5,17000.00,100,2),
+         (102,'Lex','De Haan','lex.de haan@xyz.com','515.123.4569','1993-01-13',5,17000.00,100,3),
+         (103,'Alexander','Hunold','alexander.hunold@xyz.com','590.423.4567','1990-01-03',9,9000.00,102,2),
+         (104,'Bruce','Ernst','bruce.ernst@xyz.com','590.423.4568','1991-05-21',9,6000.00,103,1),
+         (105,'David','Austin','david.austin@xyz.com','590.423.4569','1997-06-25',9,4800.00,103,None)]
+
+executemany(employee_insert, insert_emp_data)
+
