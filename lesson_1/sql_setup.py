@@ -55,6 +55,8 @@ ALTER TABLE countries ADD country_name text
 
 execute(queryString=query_alter)
 insert_query = "insert into regions values(1,'test-regions', '001')"
+insert_query2 = "INSERT INTO regions VALUES(2, 'CANADA', '002')"
+insert_query3 = "INSERT INTO regions VALUES(3, 'AFRICA', '003')"
 
 execute(queryString=insert_query)
 
@@ -72,3 +74,19 @@ read_sql(select_query_specific)
 updateQuery1 = "update regions set region_code = '003' where region_id = 2 "
 execute(updateQuery1)
 # read_sql("select * from regions")
+updateQuery2 = "update regions set region_code = 004, region_name = 'America' where region_id = 2"
+execute(updateQuery2)
+# read_sql("select * from regions")
+
+
+# DELETE query
+
+del_query = "delete from regions where region_id = 1"
+
+execute(queryString=del_query)
+
+
+#drop_table
+
+query_drop_table = "DROP TABLE regions"
+
