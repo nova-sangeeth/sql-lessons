@@ -57,3 +57,18 @@ execute(queryString=query_alter)
 insert_query = "insert into regions values(1,'test-regions', '001')"
 
 execute(queryString=insert_query)
+
+
+# SELECT  STATEMENTS IN SQL
+
+select_query = "select * from regions"
+# execute(queryString=select_query)
+# read_sql(select_query)
+select_query_specific = "select * from regions where region_id = 2"
+read_sql(select_query_specific)
+
+# UPDATE METHODS IN SQL
+
+updateQuery1 = "update regions set region_code = '003' where region_id = 2 "
+execute(updateQuery1)
+# read_sql("select * from regions")
