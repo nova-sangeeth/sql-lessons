@@ -133,6 +133,21 @@ execute(
     queryString=dept_alter_query
 )
 
+#insert data into dept
+
+insert_dept = '''
+insert into department(department_name) values(?)
+'''
+insert_dept_data = [
+    ('Admin'),
+    ('Accoutns'),
+    ('IT'),
+    ('Production'),
+    ('Purchasing'),
+    ('Marketing')
+]
+executemany(insert_dept, insert_dept_data)
+
 #inserting data into employees:
 
 employee_insert = '''
@@ -159,3 +174,8 @@ insert_emp_data=[(100,'Steven','King','steven.king@xyz.com','515.123.4567','1987
 
 executemany(employee_insert, insert_emp_data)
 
+
+#desc order in sql
+
+desc_query = "select * from employees order by salary DESC"
+execute(desc_query)
