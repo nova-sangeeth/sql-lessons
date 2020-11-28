@@ -179,3 +179,44 @@ executemany(employee_insert, insert_emp_data)
 
 desc_query = "select * from employees order by salary DESC"
 execute(desc_query)
+
+#ascending order
+asc_query = "select * from employees order by salary DESC, first_name ASC"
+execute(asc_query)
+
+#CROSS JOIN
+cross_query = '''
+SELECT COUNT(*)
+FROM
+employees Join departments
+'''
+execute(queryString=cross_query)
+#CROSS JOIN TWO
+
+cross_query2 = '''
+SELECT employee_id, first_name, department_name FORM employees CROSS JOIN departments
+'''
+execute(queryString=cross_query2)
+
+#INNER JOIN
+inner_join_query = '''
+SELECT employee_id, first_name, department_name from employees
+INNER JOIN departments ON employee.dep_id = departments.department_id
+'''
+execute(queryString=inner_join_query)
+
+
+#OUTER JOIN QUERY
+
+outer_join_query = '''
+SELECT employee_id, first_name, department_name from employees INNER JOIN departments 
+on employees.dep_id = departments.department_id
+'''
+
+execute(queryString=outer_join_query)
+
+
+
+
+
+
