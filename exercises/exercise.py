@@ -28,3 +28,13 @@ read_sql(
 
 select_query = 'select * from Album limit 10'
 
+
+# SELECT RECORDS ACCORDING TO THE TIME OF EACH TRACK
+
+query_select1 = '''
+select
+a.Title as AlbumTitle, t.Name as TrackName, (MilliSeconds/1000.60.0) as Minutes
+from
+Track t join Album a on (a.AlbumId = t.AlbumId)
+LIMIT 10
+'''
