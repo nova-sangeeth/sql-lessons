@@ -16,3 +16,15 @@ def executemany(queryString,data):
 
 def read_sql(sql_query):
   return pd.read_sql(sql_query,connection)
+
+
+#select statements
+
+read_sql(
+  "select * from Track limit 20"
+)
+
+#select Items from albums
+
+select_query = 'select * from Album limit 10'
+
