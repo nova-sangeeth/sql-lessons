@@ -38,3 +38,11 @@ from
 Track t join Album a on (a.AlbumId = t.AlbumId)
 LIMIT 10
 '''
+
+# ALBUM THAT HAS THE MAXIMUM NUMBER OF TRACKS
+query_max_num = '''
+select AlbumId, count(*) as albumcount
+from Track
+Group by AlbumId
+'''
+
